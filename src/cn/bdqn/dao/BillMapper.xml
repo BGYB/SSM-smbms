@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<!-- namespace对应的是接口文件 -->
+<mapper namespace="cn.bdqn.dao.BillDao">
+	<!-- 获取所有的SQL
+		id="接口中的方法名"
+		resultType="返回值得类型"
+		parameterType="入参的数据类型"
+	 -->
+	
+	
+	<!-- 查询smbms_bill别名：b中所有smbms_provider别名：p中的proName，条件是b中的providerId等于p中的id -->
+	 <select id="getall" resultMap="billMep">
+		SELECT  b.*,p.proName FROM `smbms_bill` b,`smbms_provider` p
+		WHERE b.providerId=p.id
+		
+		<if test="productName!=null and productName!=''">
+	 	and productName like CONCAT('%',#{productName},'%')
+		 </if>
+		 <if test="providerId!=null and providerId!=0">
+		 	and providerId=#{providerId}
+		 </if>
+		  <if test="isPayment!=null and isPayment!=0">
+		 	and isPayment=#{isPayment}
+		 </if>
+		 limit #{from},#{pageSize}
+	 </select>
+	
+	 <resultMap type="Bill" id="billMep">
+	 	<result property="proName" column="proName"/>
+	 </resultMap>
+	
+	
+	
+	
+	
+	<!-- 	 计算总数 -->
+	 <select id="getCount" resultType="int">
+	 	select count(1) from `smbms_bill`
+	 	<where>
+	 	<if test="productName!=null and productName!=''">
+	 	and productName like CONCAT('%',#{productName},'%')
+		 </if>
+		 <if test="providerId!=null and providerId!=''">
+		 	and providerId=#{providerId}
+		 </if>
+		  <if test="isPayment!=null and isPayment!=0">
+		 	and isPayment=#{isPayment}
+		 </if>
+	 	</where>
+	 </select>
+	
+	
+	
+	
+	<!-- 添加 -->
+	 <insert id="add" parameterType="Bill">
+	 insert into `smbms_bill`(`billCode`,`productName`,`productUnit`,`productCount`,`totalPrice`,`providerId`,`creationDate`,`isPayment`) VALUES
+	 (#{billCode},#{productName},#{productUnit},#{productCount},#{totalPrice},#{providerId},#{creationDate},#{isPayment})				
+	 </insert>
+	 
+	<!-- 按id查询 -->
+	<select id="getid" resultType="Bill">
+	SELECT  b.*,p.proName FROM `smbms_bill` b,`smbms_provider` p
+		WHERE b.providerId=p.id and b.id=#{id}
+	</select>
+	
+	
+	
+	
+	 	<!-- 修改 -->
+	 <update id="update" parameterType="Bill">
+	 	update `smbms_bill`
+		 <set>	
+		 	<if test="billCode!=null and billCode!=''">
+		 		`billCode`=#{billCode},
+		 	</if>
+	 		<if test="productName!=null and productName!=''">
+		 		`productName`=#{productName},
+		 	</if>
+		 	<if test="productUnit!=null and productUnit!=''">
+		 		`productUnit`=#{productUnit},
+		 	</if>
+		 	<if test="productCount!=null and productCount!=''">
+		 		`productCount`=#{productCount},
+		 	</if>
+		 	<if test="totalPrice!=null and totalPrice!=''">
+		 		`totalPrice`=#{totalPrice},
+		 	</if>
+		 	<if test="isPayment!=null and isPayment!=''">
+		 		`isPayment`=#{isPayment},
+		 	</if>
+		 	<if test="createdBy!=null and createdBy!=''">
+		 		`createdBy`=#{createdBy},
+		 	</if>
+		 	<if test="creationDate!=null and creationDate!=''">
+		 		`creationDate`=#{creationDate},
+		 	</if>
+		 	<if test="modifyBy!=null and modifyBy!=''">
+		 		`modifyBy`=#{modifyBy},
+		 	</if>
+		 	<if test="modifyDate!=null and modifyDate!=''">
+		 		`modifyDate`=#{modifyDate},
+		 	</if>
+		 	<if test="providerId!=null and providerId!=''">
+		 		`providerId`=#{providerId},
+		 	</if>
+		 	
+	 	</set>
+	 	where id=#{id}
+	 </update>
+	
+	
+	
+	
+	
+	<!--  删除 -->
+	 	<delete id="delete" parameterType="int">
+	 		delete from `smbms_bill` where id=#{id}
+	 	</delete>
+	 
+	
+	
+</mapper>

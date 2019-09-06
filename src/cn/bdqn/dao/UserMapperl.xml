@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<!-- namespace对应的是接口文件 -->
+<mapper namespace="cn.bdqn.dao.Userdao">
+	<!-- 获取所有的SQL
+		id="接口中的方法名"
+		resultType="返回值得类型"
+		parameterType="入参的数据类型"
+	 -->
+	 
+	 <resultMap type="User" id="userMap">
+	 	<id property="id" column="id"/>
+	 	<result property="age" column="age"/>
+	 	<result property="userRoleName" column="userRoleName"/>
+	 </resultMap>
+	 
+	 
+	<!--  分页及模糊查询 -->
+	 <select id="findByPageConditions" resultMap="userMap">
+	 	SELECT U.id,userCode,userName,userPassword,gender,birthday,
+		phone,address,userRole,U.createdBy,U.creationDate,U.modifyBy,
+		U.modifyDate,   FLOOR(DATEDIFF(NOW(),birthday)/365)AS age,
+		R.roleName AS userRoleName
+		FROM `smbms_user` U INNER JOIN `smbms_role` R ON U.userRole=R.id
+		
+		<where>
+			<if test="userName!=null and userName!=''">
+				AND `userName` LIKE CONCAT('%',#{userName},'%')
+			</if>
+			<if test="roleId!=null and roleId!=0">
+				AND U.userRole=#{roleId}
+			</if>
+		</where>
+		limit #{from},#{pageSize}
+	 </select>
+	 
+	 
+	 
+	<!--  查询分页总记录数 -->
+	 <select id="getCountByConditions" resultType="int">
+		SELECT COUNT(U.id)FROM `smbms_user` U INNER JOIN `smbms_role` R ON U.userRole=R.id
+	 	<where>
+			<if test="userName!=null and userName!=''">
+				AND `userName` LIKE CONCAT('%',#{userName},'%')
+			</if>
+			<if test="roleId!=null and roleId!=0">
+			AND U.userRole=#{roleId}
+			</if>
+		</where>
+	 </select>
+	 
+	 
+	
+	 
+	 
+	<!--  登入 -->
+	 <select id="finByuserCode" parameterType="String" resultType="User">
+	 	SELECT id,userCode,userName,userPassword,gender,birthday,phone,address,userRole  FROM `smbms_user` WHERE `userCode`=#{userCode}
+	 </select>
+	 
+	  
+	<!--  密码验证 -->
+	 <select id="finByuserName" parameterType="String" resultType="User">
+		SELECT U.id,userCode,userName,userPassword,gender,birthday,
+		phone,address,userRole,U.createdBy,U.creationDate,U.modifyBy,
+		U.modifyDate,   FLOOR(DATEDIFF(NOW(),birthday)/365)AS age,
+		R.roleName AS userRoleName
+		FROM `smbms_user` U INNER JOIN `smbms_role` R ON U.userRole=R.id
+		WHERE `userName`=#{userName}
+	 </select>
+	
+	
+	<!-- 添加 --> 
+	  
+	 <insert id="add" parameterType="User">
+	 insert into `smbms_user`(`userCode`,`userName`,`userPassword`,`gender`,`birthday`,`phone`,
+	 `address`,`userRole`,`createdBy`,`creationDate`,`modifyBy`,`modifyDate`)
+	  VALUES
+	 (#{userCode},#{userName},#{userPassword},#{gender},#{birthday},#{phone},
+	 #{address},#{userRole},#{createdBy},#{creationDate},#{modifyBy},#{modifyDate})				
+	 </insert>
+	 
+	 
+	 
+	 
+	 
+	 
+	<!--  按id查询 -->
+	  <select id="getUser" resultType="User">
+	  SELECT U.id,userCode,userName,userPassword,gender,birthday,
+		phone,address,userRole,U.createdBy,U.creationDate,U.modifyBy,
+		U.modifyDate,   FLOOR(DATEDIFF(NOW(),birthday)/365)AS age,
+		R.roleName AS userRoleName
+		FROM `smbms_user` U INNER JOIN `smbms_role` R ON U.userRole=R.id
+		WHERE U.userRole=R.id AND U.id=#{id}
+	 </select>
+	 
+	 	<!-- 修改 -->
+	 <update id="updade" parameterType="User">
+	 	update `smbms_user`
+		 <set>	
+		 	<if test="userCode!=null and userCode!=''">
+		 		`userCode`=#{userCode},
+		 	</if>
+	 		<if test="userName!=null and userName!=''">
+		 		`userName`=#{userName},
+		 	</if>
+		 	<if test="userPassword!=null and userPassword!=''">
+		 		`userPassword`=#{userPassword},
+		 	</if>
+		 	<if test="gender!=null and gender!=''">
+		 		`gender`=#{gender},
+		 	</if>
+		 	<if test="birthday!=null and birthday!=''">
+		 		`birthday`=#{birthday},
+		 	</if>
+		 	<if test="phone!=null and phone!=''">
+		 		`phone`=#{phone},
+		 	</if>
+		 	<if test="address!=null and address!=''">
+		 		`address`=#{address},
+		 	</if>
+		 	<if test="userRole!=null and userRole!=''">
+		 		`userRole`=#{userRole},
+		 	</if>
+		 	<if test="createdBy!=null and createdBy!=''">
+		 		`createdBy`=#{createdBy},
+		 	</if>
+		 	<if test="creationDate!=null and creationDate!=''">
+		 		`creationDate`=#{creationDate},
+		 	</if>
+		 	<if test="modifyBy!=null and modifyBy!=''">
+		 		`modifyBy`=#{modifyBy},
+		 	</if>
+		 	<if test="modifyDate!=null and modifyDate!=''">
+		 		`modifyDate`=#{modifyDate},
+		 	</if>
+		 	
+	 	</set>
+	 	where id=#{id}
+	 </update>
+	 
+	 
+	 
+	 
+	 
+	 	<!--  删除 -->
+	 	<delete id="delete" parameterType="int">
+	 		delete from `smbms_user` where id=#{id}
+	 	</delete>
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 <!--  查询所有用户 -->
+	 <select id="finall" resultType="User">
+	SELECT U.id,userCode,userName,userPassword,gender,birthday,
+	phone,address,userRole,U.createdBy,U.creationDate,U.modifyBy,
+	U.modifyDate,   FLOOR(DATEDIFF(NOW(),birthday)/365)AS age,
+	R.roleName AS userRoleName
+	FROM `smbms_user` U INNER JOIN `smbms_role` R ON U.userRole=R.id	
+	 </select> 
+	 
+	 
+	 
+</mapper>

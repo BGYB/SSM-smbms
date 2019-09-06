@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<!-- namespace对应的是接口文件 -->
+<mapper namespace="cn.bdqn.dao.Roledao">
+	<!-- 获取所有的SQL
+		id="接口中的方法名"
+		resultType="返回值得类型"
+		parameterType="入参的数据类型"
+	 -->
+	 <select id="finAll" resultType="Role">
+		select * from `smbms_role`
+	 </select>
+	
+</mapper>

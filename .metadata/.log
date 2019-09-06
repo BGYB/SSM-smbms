@@ -1,0 +1,93 @@
+!SESSION 2019-08-16 23:01:23.094 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -data H:\项目网站\超市订单SSM框架\自己代码Smbms -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.genuitec.eclipse.core 1 0 2019-08-16 23:01:31.358
+!MESSAGE Unable to locate .myeclipse.properties file
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:34.966
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\css_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:35.154
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\forms_lists_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:35.450
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\htmlform_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:35.669
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:35.841
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\javascript_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:35.997
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_f_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:36.107
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_h_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:36.263
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_bean_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:36.451
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:36.576
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_logic_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:01:36.732
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_tiles_snippets.xml
+!SESSION 2019-08-16 23:02:01.117 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.genuitec.eclipse.core 1 0 2019-08-16 23:02:05.288
+!MESSAGE Unable to locate .myeclipse.properties file
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.647
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\css_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.663
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\forms_lists_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.678
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\htmlform_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.694
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.709
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\javascript_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.709
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_f_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.725
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_h_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.740
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_bean_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.756
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.772
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_logic_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-08-16 23:02:07.772
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_tiles_snippets.xml
+!SESSION 2019-08-16 23:03:00.761 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -data H:\项目网站\超市订单SSM框架\自己代码Smbms -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.genuitec.eclipse.core 1 0 2019-08-16 23:03:07.505
+!MESSAGE Unable to locate .myeclipse.properties file

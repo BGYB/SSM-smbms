@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<!-- namespace对应的是接口文件 -->
+<mapper namespace="cn.bdqn.dao.ProviderDao">
+	<!-- 获取所有的SQL
+		id="接口中的方法名"
+		resultType="返回值得类型"
+		parameterType="入参的数据类型"
+	 -->
+	 
+	 
+	 <select id="getall" resultType="Provider">
+	 select * from `smbms_provider`
+	 </select>
+	 
+	<!--  模糊查询及分页 -->
+	 <select id="finall" resultType="Provider">
+		select * from `smbms_provider`
+		<where>
+		<if test="proCode!=null and proCode!=''">
+	 		and proCode like CONCAT('%',#{proCode},'%')
+	 	</if>
+		<if test="proName!=null and proName!=''">
+	 		and proName like CONCAT('%',#{proName},'%')
+	 	</if>
+	 	</where>
+		limit #{from},#{pageSize}
+	 </select>
+	
+	
+	
+	
+		<!--  计算总数 -->
+	 <select id="getCount" resultType="int">
+	 	select count(1) from `smbms_provider`
+	 	<where>
+	 	 <if test="proCode!=null and proCode!=''">
+	 		and proCode like CONCAT('%',#{proCode},'%')
+	 	</if>
+		  <if test="proName!=null and proName!=''">
+	 		and proName like CONCAT('%',#{proName},'%')
+	 	</if>
+	 	</where>
+	 </select>
+	 
+	 
+	 
+	 
+	
+	<!--  按id查询 -->
+	  <select id="getid" resultType="Provider">
+	 	select * from  `smbms_provider` where id=#{id}
+	 </select> 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+	<!--  添加 -->
+	 <insert id="add" parameterType="Provider">
+	 insert into `smbms_provider`(`proCode`,`proName`,`proDesc`,`proContact`,`proPhone`,`proAddress`,`proFax`,`createdBy`,`creationDate`,`modifyDate`,`modifyBy`,`picPath`) VALUES
+	 (#{proCode},#{proName},#{proDesc},#{proContact},#{proPhone},#{proAddress},#{proFax},#{createdBy},#{creationDate},#{modifyDate},#{modifyBy},#{picPath})
+	 </insert> 
+	
+	 
+	 
+	
+	
+		<!-- 修改 -->
+	<update id="update" parameterType="Provider">
+	 	update `smbms_provider`
+		 <set>	
+		 	<if test="proCode!=null and proCode!=''">
+		 		`proCode`=#{proCode},
+		 	</if>
+	 		<if test="proName!=null and proName!=''">
+		 		`proName`=#{proName},
+		 	</if>
+		 	<if test="proDesc!=null and proDesc!=''">
+		 		`proDesc`=#{proDesc},
+		 	</if>
+		 	<if test="proContact!=null and proContact!=''">
+		 		`proContact`=#{proContact},
+		 	</if>
+		 	<if test="proPhone!=null and proPhone!=''">
+		 		`proPhone`=#{proPhone},
+		 	</if>
+		 	<if test="proAddress!=null and proAddress!=''">
+		 		`proAddress`=#{proAddress},
+		 	</if>
+		 	<if test="proFax!=null and proFax!=''">
+		 		`proFax`=#{proFax},
+		 	</if>
+		 	<if test="createdBy!=null and createdBy!=''">
+		 		`createdBy`=#{createdBy},
+		 	</if><if test="creationDate!=null and creationDate!=''">
+		 		`creationDate`=#{creationDate},
+		 	</if>
+		 	<if test="modifyDate!=null and modifyDate!=''">
+		 		`modifyDate`=#{modifyDate},
+		 	</if>
+		 	<if test="modifyBy!=null and modifyBy!=''">
+		 		`modifyBy`=#{modifyBy},
+		 	</if>
+		 	<if test="picPath!=null and picPath!=''">
+		 		`picPath`=#{picPath},
+		 	</if>
+	 	</set>
+	 	where id=#{id}
+	 </update> 
+	
+	
+	
+	
+	
+	<!--  删除 -->
+	 	 <delete id="delete" parameterType="int">
+	 		delete from `smbms_provider` where id=#{id}
+	 	</delete>
+	
+</mapper>
